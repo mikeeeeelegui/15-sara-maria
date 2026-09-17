@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años — Sara María</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#181310;
+    --black-soft:#241D18;
+    --cream:#F8F2E7;
+    --cream-deep:#EFE5D2;
+    --gold:#B9895A;
+    --gold-soft:#D9BB93;
+    --ink:#2B2620;
+    --ink-soft:#6b6156;
+    --line-dark: rgba(217,187,147,0.25);
+    --line-light: rgba(185,137,90,0.3);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{ display:block; width:100%; height:100%; object-fit:cover; }
+
+  a{ color:inherit; }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:4px;
+    color:var(--gold);
+  }
+
+  .heading{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(30px,4.5vw,40px);
+    margin:10px 0 14px;
+  }
+
+  .heading-rule{
+    width:40px; height:1px;
+    background:var(--gold);
+    margin:0 auto 40px;
+  }
+
+  .center{ text-align:center; }
+
+  /* ================= NAV ================= */
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px clamp(20px,5vw,60px);
+    background:linear-gradient(to bottom, rgba(10,8,6,0.55), transparent);
+  }
+
+  .nav-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--gold-soft);
+  }
+
+  .nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+  }
+
+  .nav-links a{
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:2.5px;
+    color:var(--cream);
+    opacity:0.9;
+    transition:opacity 0.2s ease;
+  }
+
+  .nav-links a:hover{ opacity:1; color:var(--gold-soft); }
+
+  #nav-rsvp{ display:none; }
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+  }
+
+  .nav-toggle span{
+    width:22px; height:1px;
+    background:var(--cream);
+  }
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;
+      top:0; right:0;
+      height:100vh;
+      width:min(72vw,300px);
+      background:var(--black);
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      gap:26px;
+      padding:40px;
+      transform:translateX(100%);
+      transition:transform 0.3s ease;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ================= HERO (sin foto) ================= */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--cream);
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(185,137,90,0.10), transparent 55%),
+      var(--black);
+    text-align:center;
+    padding: 90px clamp(24px,6vw,70px);
+  }
+
+  .hero-xv{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:clamp(220px,55vw,520px);
+    line-height:1;
+    color:rgba(217,187,147,0.06);
+    letter-spacing:-10px;
+    pointer-events:none;
+    user-select:none;
+    white-space:nowrap;
+  }
+
+  .hero-content{ position:relative; max-width:480px; }
+
+  .hero-monogram{
+    width:70px; height:70px;
+    margin:0 auto 26px;
+    border:1px solid var(--gold-soft);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:30px;
+    color:var(--gold-soft);
+  }
+
+  .hero-flourish{
+    width:120px;
+    height:14px;
+    margin:0 auto 24px;
+    color:var(--gold-soft);
+    opacity:0.8;
+  }
+
+  .hero-kicker{
+    font-size:13px;
+    letter-spacing:5px;
+    color:var(--gold-soft);
+    margin-bottom:20px;
+  }
+
+  .hero-name{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(46px,9vw,78px);
+    line-height:1.1;
+    margin-bottom:24px;
+  }
+
+  .hero-rule{
+    width:60px; height:1px;
+    background:var(--gold-soft);
+    margin:0 auto 26px;
+  }
+
+  .hero-sub{
+    font-size:15px;
+    line-height:1.9;
+    color:rgba(248,242,231,0.75);
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:28px; left:50%;
+    transform:translateX(-50%);
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--gold-soft);
+    opacity:0.75;
+  }
+
+  /* ================= COUNTDOWN STRIP ================= */
+  .countdown-strip{
+    background:var(--black);
+    color:var(--cream);
+    padding:46px clamp(20px,5vw,60px);
+    text-align:center;
+    border-top:1px solid var(--line-dark);
+  }
+
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:clamp(14px,4vw,34px);
+    flex-wrap:wrap;
+  }
+
+  .cd-num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(30px,6vw,44px);
+    color:var(--gold-soft);
+    line-height:1;
+  }
+
+  .cd-label{
+    font-size:11px;
+    letter-spacing:2px;
+    color:var(--cream);
+    opacity:0.65;
+    margin-top:10px;
+  }
+
+  .countdown-done{
+    display:none;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:24px;
+    color:var(--gold-soft);
+  }
+
+  /* ================= SECTIONS ================= */
+  section{ padding:90px clamp(24px,6vw,70px); }
+
+  .section-dark{
+    background:var(--black);
+    color:var(--cream);
+  }
+
+  .section-dark .ink-soft{ color:rgba(248,242,231,0.65); }
+
+  /* ---- CUADRO CON SLIDESHOW (reemplaza "Mi Historia") ---- */
+  #momento p.intro{
+    max-width:480px;
+    margin:0 auto 50px;
+    font-size:15px;
+    line-height:1.9;
+    color:var(--ink-soft);
+  }
+
+  .frame-wrap{ display:flex; justify-content:center; }
+
+  .frame{
+    position:relative;
+    width:min(360px, 78vw);
+    aspect-ratio:4/5;
+    border:1px solid var(--gold);
+    padding:14px;
+  }
+
+  .frame::before{
+    content:"";
+    position:absolute; inset:6px;
+    border:1px solid var(--gold-soft);
+    pointer-events:none;
+    z-index:2;
+  }
+
+  .frame-inner{
+    position:relative;
+    width:100%; height:100%;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--cream-deep), #ddcdb0);
+  }
+
+  .frame-inner img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation:slideshow 15s infinite;
+  }
+
+  .frame-inner img:nth-child(1){ animation-delay:0s; }
+  .frame-inner img:nth-child(2){ animation-delay:5s; }
+  .frame-inner img:nth-child(3){ animation-delay:10s; }
+
+  @keyframes slideshow{
+    0%{ opacity:0; }
+    4%{ opacity:1; }
+    30%{ opacity:1; }
+    36%{ opacity:0; }
+    100%{ opacity:0; }
+  }
+
+  .frame-placeholder{
+    position:absolute; inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:var(--gold);
+    opacity:0.55;
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-align:center;
+    padding:14px;
+  }
+
+  .frame-placeholder svg{ width:24px; height:24px; }
+
+  /* ---- EVENTO ---- */
+  .event-grid{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:40px;
+    max-width:820px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .event-grid > div{ flex:1; min-width:150px; }
+
+  .event-icon{
+    width:46px; height:46px;
+    margin:0 auto 20px;
+    color:var(--gold-soft);
+  }
+
+  .event-label{
+    font-size:12px;
+    letter-spacing:2.5px;
+    color:var(--gold-soft);
+    margin-bottom:10px;
+  }
+
+  .event-value{
+    font-size:15px;
+    line-height:1.8;
+    color:var(--cream);
+  }
+
+  @media (max-width:640px){
+    .event-grid{
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      justify-content:flex-start;
+      gap:30px;
+      padding-bottom:6px;
+      -webkit-overflow-scrolling:touch;
+    }
+    .event-grid > div{ min-width:200px; flex:0 0 auto; }
+  }
+
+  .map-btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 28px;
+    border:1px solid var(--gold);
+    color:var(--gold-soft);
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:2px;
+    transition: all 0.25s ease;
+  }
+
+  .map-btn:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--black);
+  }
+
+  /* ---- VESTIMENTA ---- */
+  .dress-grid{
+    display:flex;
+    justify-content:center;
+    gap:70px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+
+  .dress-item{ text-align:center; }
+
+  .dress-circle{
+    width:96px; height:96px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 16px;
+    color:var(--gold);
+  }
+
+  .dress-circle svg{ width:38px; height:38px; }
+
+  .dress-title{
+    font-size:13px;
+    letter-spacing:2px;
+    color:var(--ink);
+    margin-bottom:4px;
+  }
+
+  .dress-sub{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  .palette{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    margin:0 auto 26px;
+  }
+
+  .swatch{
+    width:32px; height:32px;
+    border-radius:50%;
+    border:1px solid rgba(0,0,0,0.08);
+  }
+
+  .dress-note{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--gold);
+    max-width:420px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  /* ---- LLUVIA DE SOBRES ---- */
+  .gift-icon{
+    width:52px; height:52px;
+    margin:0 auto 22px;
+    color:var(--gold-soft);
+  }
+
+  .gift-text{
+    max-width:440px;
+    margin:0 auto;
+    font-size:15px;
+    line-height:1.9;
+    color:rgba(248,242,231,0.8);
+  }
+
+  .gift-text strong{
+    color:var(--gold-soft);
+    font-weight:400;
+  }
+
+  /* ---- INVITACION PERSONALIZADA + RSVP (solo con link personalizado) ---- */
+  #rsvp-section{ display:none; background:var(--black); color:var(--cream); }
+
+  .personal-greeting{
+    max-width:520px;
+    margin:0 auto 50px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(22px,3.5vw,28px);
+    line-height:1.6;
+    color:var(--gold-soft);
+  }
+
+  .rsvp-form{
+    max-width:480px;
+    margin:0 auto;
+  }
+
+  .field{ margin-bottom:22px; }
+
+  label{
+    display:block;
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:var(--gold-soft);
+    margin-bottom:8px;
+  }
+
+  input[type="text"],
+  input[type="number"]{
+    width:100%;
+    padding:13px 4px;
+    font-family:'Jost', sans-serif;
+    font-size:15px;
+    font-weight:400;
+    color:var(--cream);
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line-dark);
+    outline:none;
+    transition:border-color 0.25s ease;
+  }
+
+  input::placeholder{ color:rgba(248,242,231,0.35); }
+
+  input:focus{ border-bottom-color:var(--gold); }
+
+  .choice-group{ display:flex; gap:10px; }
+
+  .choice{
+    flex:1;
+    text-align:center;
+    padding:13px 8px;
+    border:1px solid var(--line-dark);
+    font-size:14px;
+    cursor:pointer;
+    user-select:none;
+    transition: all 0.2s ease;
+  }
+
+  .choice.active{
+    background:var(--gold);
+    color:var(--black);
+    border-color:var(--gold);
+  }
+
+  .submit-btn{
+    width:100%;
+    margin-top:10px;
+    padding:16px;
+    background:var(--gold);
+    color:var(--black);
+    border:none;
+    border-radius:30px;
+    font-family:'Jost', sans-serif;
+    font-size:13px;
+    letter-spacing:2.5px;
+    cursor:pointer;
+    transition: background 0.25s ease, transform 0.15s ease;
+  }
+
+  .submit-btn:hover{ background:var(--gold-soft); }
+  .submit-btn:active{ transform:scale(0.98); }
+  .submit-btn:disabled{ opacity:0.6; cursor:not-allowed; }
+
+  .confirm-msg{
+    display:none;
+    text-align:center;
+  }
+
+  .confirm-msg .heading{ color:var(--gold-soft); }
+
+  .confirm-msg p{
+    font-size:14px;
+    line-height:1.7;
+    color:rgba(248,242,231,0.75);
+  }
+
+  .form-error{
+    display:none;
+    color:#e08b7d;
+    font-size:13px;
+    margin-top:14px;
+  }
+
+  /* ---- FOOTER ---- */
+  footer{
+    background:var(--cream);
+    text-align:center;
+    padding:60px 20px;
+  }
+
+  .footer-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:32px;
+    color:var(--gold);
+    margin-bottom:16px;
+  }
+
+  .footer-text{
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">S</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#evento">Evento</a></li>
+    <li><a href="#vestimenta">Vestimenta</a></li>
+    <li id="nav-rsvp"><a href="#rsvp-section">Confirmar Asistencia</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ================= HERO (sin foto) ================= -->
+<section class="hero" id="inicio">
+  <div class="hero-xv">XV</div>
+  <div class="hero-content">
+    <div class="hero-monogram">S</div>
+    <svg class="hero-flourish" viewBox="0 0 120 14" fill="none" stroke="currentColor" stroke-width="1">
+      <path d="M0 7h40M80 7h40"/>
+      <circle cx="60" cy="7" r="4"/>
+      <path d="M50 7c3-4 7-4 10 0M60 7c3-4 7-4 10 0" transform="translate(0,0)"/>
+    </svg>
+    <p class="hero-kicker">MIS QUINCE AÑOS</p>
+    <h1 class="hero-name">Sara María</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Con la bendición de Dios y de mis padres, quiero compartir contigo esta noche tan especial en mi vida.</p>
+  </div>
+  <div class="scroll-cue">DESLIZA ↓</div>
+</section>
+
+<!-- ================= COUNTDOWN ================= -->
+<div class="countdown-strip">
+  <p class="eyebrow" style="margin-bottom:20px;">FALTAN</p>
+  <div class="countdown" id="countdown">
+    <div><div class="cd-num" id="cd-days">00</div><div class="cd-label">DÍAS</div></div>
+    <div><div class="cd-num" id="cd-hours">00</div><div class="cd-label">HORAS</div></div>
+    <div><div class="cd-num" id="cd-mins">00</div><div class="cd-label">MINUTOS</div></div>
+    <div><div class="cd-num" id="cd-secs">00</div><div class="cd-label">SEGUNDOS</div></div>
+  </div>
+  <p class="countdown-done" id="countdown-done">¡Hoy es el gran día!</p>
+</div>
+
+<!-- ================= CUADRO CON SLIDESHOW (reemplaza Mi Historia) ================= -->
+<section id="momento" class="center">
+  <p class="eyebrow">CON CARIÑO</p>
+  <h2 class="heading">Un Momento Especial</h2>
+  <div class="heading-rule"></div>
+  <p class="intro">Quince años de sueños, aprendizajes y momentos que me han convertido en quien soy hoy.</p>
+
+  <div class="frame-wrap">
+    <div class="frame">
+      <div class="frame-inner">
+        <img src="/foto1.jpg" alt="" onerror="this.style.display='none';">
+        <img src="/foto2.jpg" alt="" onerror="this.style.display='none';">
+        <img src="/foto3.jpg" alt="" onerror="this.style.display='none';">
+        <div class="frame-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+          Sube "foto1.jpg", "foto2.jpg" y "foto3.jpg" en la raíz del sitio
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTO ================= -->
+<section id="evento" class="section-dark center">
+  <p class="eyebrow">EL GRAN DÍA</p>
+  <h2 class="heading">Detalles del Evento</h2>
+  <div class="heading-rule"></div>
+
+  <div class="event-grid">
+    <div>
+      <svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+      <p class="event-label">FECHA</p>
+      <p class="event-value">Domingo<br>1 de noviembre</p>
+    </div>
+    <div>
+      <svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      <p class="event-label">HORA</p>
+      <p class="event-value">6:00 p.m.</p>
+    </div>
+    <div>
+      <svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+      <p class="event-label">LUGAR</p>
+      <p class="event-value">Hotel Sochagota<br>Paipa, Boyacá</p>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Hotel+Sochagota+Paipa+Boyaca" target="_blank" rel="noopener">Ver en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CODIGO DE VESTIMENTA ================= -->
+<section id="vestimenta" class="center">
+  <p class="eyebrow">ELEGANCIA ANTE TODO</p>
+  <h2 class="heading">Código de Vestimenta</h2>
+  <div class="heading-rule"></div>
+
+  <div class="dress-grid">
+    <div class="dress-item">
+      <div class="dress-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M12 3c-1.2 0-2 .9-2 2 0 .7.3 1.3.8 1.7L9 10l-4 9h14l-4-9-1.8-3.3c.5-.4.8-1 .8-1.7 0-1.1-.8-2-2-2z"/></svg>
+      </div>
+      <p class="dress-title">FORMAL</p>
+      <p class="dress-sub">Vestido largo</p>
+    </div>
+    <div class="dress-item">
+      <div class="dress-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 4l4 3 4-3 3 3-2 2v11H7V9L5 7z"/><path d="M12 7v13"/></svg>
+      </div>
+      <p class="dress-title">FORMAL</p>
+      <p class="dress-sub">Traje</p>
+    </div>
+  </div>
+
+  <div class="palette">
+    <div class="swatch" style="background:#B9895A;" title="Dorado"></div>
+    <div class="swatch" style="background:#241D18;" title="Negro"></div>
+    <div class="swatch" style="background:#6b5843;" title="Champán oscuro"></div>
+    <div class="swatch" style="background:#F8F2E7; border-color:#ddd;" title="Marfil"></div>
+  </div>
+
+  <p class="dress-note">El dorado será el color de mi vestido, ¡ese tono lo dejo solo para mí! También se sugiere evitar el blanco.</p>
+</section>
+
+<!-- ================= LLUVIA DE SOBRES ================= -->
+<section id="regalo" class="section-dark center">
+  <svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1">
+    <rect x="3" y="6" width="18" height="13" rx="1"/>
+    <path d="M3 7l9 6 9-6"/>
+  </svg>
+  <p class="eyebrow">DETALLE</p>
+  <h2 class="heading">Lluvia de Sobres</h2>
+  <div class="heading-rule"></div>
+  <p class="gift-text">Tu compañía es el regalo más importante de esta noche. Si deseas tener un detalle adicional conmigo, el obsequio elegido para la celebración es <strong>lluvia de sobres</strong>.</p>
+</section>
+
+<!-- ================= RSVP (solo visible en links personalizados) ================= -->
+<section id="rsvp-section" class="center">
+  <p class="eyebrow">TU PRESENCIA ES EL MEJOR REGALO</p>
+  <p class="personal-greeting" id="personal-greeting"></p>
+  <h2 class="heading">Confirmar Asistencia</h2>
+  <div class="heading-rule"></div>
+
+  <form class="rsvp-form" id="rsvp-form">
+    <input type="hidden" id="invitado-slug" name="invitado">
+
+    <div class="field">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+    </div>
+
+    <div class="field">
+      <label>¿Asistirás?</label>
+      <div class="choice-group" id="asistencia-group">
+        <div class="choice active" data-value="si">Sí, asistiré</div>
+        <div class="choice" data-value="no">No podré ir</div>
+      </div>
+    </div>
+
+    <div class="field" id="acompanantes-field">
+      <label for="acompanantes">Número de acompañantes</label>
+      <input type="number" id="acompanantes" name="acompanantes" min="0" max="10" value="0">
+    </div>
+
+    <div class="field">
+      <label for="mensaje">Mensaje para Sara María (opcional)</label>
+      <input type="text" id="mensaje" name="mensaje" placeholder="Escribe unas palabras...">
+    </div>
+
+    <input type="hidden" name="asistencia" id="asistencia-hidden" value="si">
+
+    <button type="submit" class="submit-btn" id="submit-btn">ENVIAR CONFIRMACIÓN</button>
+    <p class="form-error" id="form-error">Hubo un problema al enviar. Intenta de nuevo en unos segundos.</p>
+  </form>
+
+  <div class="confirm-msg" id="confirm-msg">
+    <h2 class="heading" id="confirm-title">¡Gracias!</h2>
+    <p id="confirm-text">Tu confirmación ha sido registrada.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mark">S</div>
+  <p class="footer-text">GRACIAS POR SER PARTE DE ESTE DÍA TAN ESPECIAL</p>
+</footer>
+
+<script>
+  // =============================================================
+  // CONFIGURACIÓN: pega aquí tu endpoint de Formspree
+  // (lo obtienes gratis en https://formspree.io — ver instrucciones)
+  // =============================================================
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/TU_ID_AQUI";
+
+  // ---- Menú móvil ----
+  const navToggle = document.getElementById("nav-toggle");
+  const navLinks = document.getElementById("nav-links");
+  navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+  navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+  // ---- Cuenta regresiva ----
+  const targetDate = new Date("2026-11-01T18:00:00");
+
+  function updateCountdown(){
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if(diff <= 0){
+      document.getElementById("countdown").style.display = "none";
+      document.getElementById("countdown-done").style.display = "block";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const mins = Math.floor((diff / (1000*60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("cd-days").textContent = String(days).padStart(2,"0");
+    document.getElementById("cd-hours").textContent = String(hours).padStart(2,"0");
+    document.getElementById("cd-mins").textContent = String(mins).padStart(2,"0");
+    document.getElementById("cd-secs").textContent = String(secs).padStart(2,"0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ---- Selector de asistencia ----
+  const choiceGroup = document.getElementById("asistencia-group");
+  const acompanantesField = document.getElementById("acompanantes-field");
+  const asistenciaHidden = document.getElementById("asistencia-hidden");
+  let asistenciaValue = "si";
+
+  choiceGroup.addEventListener("click", (e) => {
+    const target = e.target.closest(".choice");
+    if(!target) return;
+    document.querySelectorAll("#asistencia-group .choice").forEach(c => c.classList.remove("active"));
+    target.classList.add("active");
+    asistenciaValue = target.dataset.value;
+    asistenciaHidden.value = asistenciaValue;
+    acompanantesField.style.display = asistenciaValue === "si" ? "block" : "none";
+  });
+
+  // ---- Detectar invitado desde la URL (ej: /diana-y-roberto/ o ?invitado=diana-y-roberto) ----
+  function slugToName(slug){
+    const smallWords = ["y","de","del","la","las","los"];
+    return slug
+      .split("-")
+      .filter(Boolean)
+      .map((w,i) => {
+        const lw = w.toLowerCase();
+        if(smallWords.includes(lw) && i !== 0) return lw;
+        return lw.charAt(0).toUpperCase() + lw.slice(1);
+      })
+      .join(" ");
+  }
+
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const queryInvitado = new URLSearchParams(window.location.search).get("invitado");
+  const slug = queryInvitado || (pathParts.length ? pathParts[pathParts.length - 1] : "");
+
+  if(slug){
+    const guestName = slugToName(slug);
+    document.getElementById("personal-greeting").textContent =
+      `${guestName}, están cordialmente invitados a celebrar mis XV años`;
+    document.getElementById("nav-rsvp").style.display = "block";
+    document.getElementById("rsvp-section").style.display = "block";
+    document.getElementById("invitado-slug").value = slug;
+  }
+
+  // ---- Envío del formulario a Formspree ----
+  const form = document.getElementById("rsvp-form");
+  const confirmMsg = document.getElementById("confirm-msg");
+  const confirmTitle = document.getElementById("confirm-title");
+  const confirmText = document.getElementById("confirm-text");
+  const submitBtn = document.getElementById("submit-btn");
+  const formError = document.getElementById("form-error");
+
+  form.addEventListener("submit", async function(e){
+    e.preventDefault();
+    formError.style.display = "none";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "ENVIANDO...";
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const formData = new FormData(form);
+
+    try{
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if(!response.ok) throw new Error("Error en el envío");
+
+      form.style.display = "none";
+      confirmMsg.style.display = "block";
+
+      if(asistenciaValue === "si"){
+        confirmTitle.textContent = "¡Nos vemos allí!";
+        confirmText.textContent = `Gracias, ${nombre || "invitado"}. Tu asistencia ha sido confirmada. ¡Será una noche inolvidable!`;
+      } else {
+        confirmTitle.textContent = "Gracias por avisar";
+        confirmText.textContent = `Lamentamos que no puedas acompañarnos, ${nombre || "invitado"}. ¡Gracias por confirmar!`;
+      }
+    } catch(err){
+      formError.style.display = "block";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "ENVIAR CONFIRMACIÓN";
+    }
+  });
+</script>
+
+</body>
+</html>
