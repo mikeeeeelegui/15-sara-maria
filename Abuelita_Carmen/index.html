@@ -856,18 +856,20 @@
   });
 
   // ---- Detectar invitado desde la URL (ej: /diana-y-roberto/ o ?invitado=diana-y-roberto) ----
-  function slugToName(slug){
-    const smallWords = ["y","de","del","la","las","los"];
-    return slug
-      .split("-")
-      .filter(Boolean)
-      .map((w,i) => {
-        const lw = w.toLowerCase();
-        if(smallWords.includes(lw) && i !== 0) return lw;
-        return lw.charAt(0).toUpperCase() + lw.slice(1);
-      })
-      .join(" ");
-  }
+function slugToName(slug){
+  const smallWords = ["y","de","del","la","las","los"];
+
+  return slug
+    .replace(/_/g, " ")
+    .split("-")
+    .filter(Boolean)
+    .map((w,i) => {
+      const lw = w.toLowerCase();
+      if(smallWords.includes(lw) && i !== 0) return lw;
+      return lw.charAt(0).toUpperCase() + lw.slice(1);
+    })
+    .join(" ");
+}
 
   const pathParts = window.location.pathname.split("/").filter(Boolean);
   const queryInvitado = new URLSearchParams(window.location.search).get("invitado");
