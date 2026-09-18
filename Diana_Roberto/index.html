@@ -358,6 +358,7 @@
   
 
   /* ---- EVENTO ---- */
+
   .event-grid{
     display:flex;
     flex-wrap:nowrap;
@@ -418,6 +419,34 @@
     border-color:var(--gold);
     color:var(--black);
   }
+
+
+  .event-scroll{
+  margin-top:50px;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:3px;
+  color:var(--black);
+  opacity:0.7;
+}
+
+.event-scroll span{
+  display:inline-block;
+  font-size:20px;
+  margin-left:8px;
+  vertical-align:-2px;
+  animation:arrowMove 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowMove{
+  0%,100%{
+    transform:translateX(0);
+  }
+  50%{
+    transform:translateX(8px);
+  }
+}
+   
 
   /* ---- VESTIMENTA ---- */
   .dress-grid{
@@ -720,6 +749,9 @@
       <a class="map-btn" href="https://maps.app.goo.gl/AAewCYzyGHPkRuad6" target="_blank" rel="noopener">Ver en Google Maps</a>
     </div>
   </div>
+  <div class="event-scroll">
+  DESLIZA <span>→</span>
+</div>
 </section>
 
 <!-- ================= CODIGO DE VESTIMENTA ================= -->
