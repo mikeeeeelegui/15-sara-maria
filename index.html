@@ -19,6 +19,13 @@
     --ink-soft:#6b6156;
     --line-dark: rgba(217,187,147,0.25);
     --line-light: rgba(185,137,90,0.3);
+    --ororosa:#DEA193;
+    --beige:#EDE8D0;
+    --rosado:#FFB6C1;
+    --rosapalo:#E8CFCB;
+    --doradometalico:#D4AF37;
+    --doradopalo:#c897574c;
+
   }
 
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -26,7 +33,7 @@
   html{ scroll-behavior:smooth; }
 
   body{
-    background:var(--cream);
+    background:var(--rosapalo);
     color:var(--ink);
     font-family:'Jost', sans-serif;
     font-weight:300;
@@ -38,9 +45,9 @@
   a{ color:inherit; }
 
   .eyebrow{
-    font-size:12px;
+    font-size:15px;
     letter-spacing:4px;
-    color:var(--gold);
+    color:var(--black);
   }
 
   .heading{
@@ -48,6 +55,7 @@
     font-weight:500;
     font-size:clamp(30px,4.5vw,40px);
     margin:10px 0 14px;
+    color:var(--black);
   }
 
   .heading-rule{
@@ -141,7 +149,7 @@
     overflow:hidden;
     background:
       radial-gradient(circle at 50% 30%, rgba(185,137,90,0.10), transparent 55%),
-      var(--black);
+      var(--rosapalo);
     text-align:center;
     padding: 90px clamp(24px,6vw,70px);
   }
@@ -154,7 +162,7 @@
     font-weight:600;
     font-size:clamp(220px,55vw,520px);
     line-height:1;
-    color:rgba(217,187,147,0.06);
+    color:#c897574c;
     letter-spacing:-10px;
     pointer-events:none;
     user-select:none;
@@ -166,7 +174,7 @@
   .hero-monogram{
     width:70px; height:70px;
     margin:0 auto 26px;
-    border:1px solid var(--gold-soft);
+    border:1px solid var(--black);
     border-radius:50%;
     display:flex;
     align-items:center;
@@ -174,21 +182,21 @@
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
     font-size:30px;
-    color:var(--gold-soft);
+    color:var(--black);
   }
 
   .hero-flourish{
     width:120px;
     height:14px;
     margin:0 auto 24px;
-    color:var(--gold-soft);
+    color:var(--black);
     opacity:0.8;
   }
 
   .hero-kicker{
-    font-size:13px;
+    font-size:18px;
     letter-spacing:5px;
-    color:var(--gold-soft);
+    color:var(--black);
     margin-bottom:20px;
   }
 
@@ -197,20 +205,22 @@
     font-style:italic;
     font-weight:500;
     font-size:clamp(46px,9vw,78px);
-    line-height:1.1;
+    line-height:1.5;
     margin-bottom:24px;
+    color:var(--black);
   }
 
   .hero-rule{
-    width:60px; height:1px;
-    background:var(--gold-soft);
+    width:70px; height:1px;
+    background:var(--black);
     margin:0 auto 26px;
   }
 
   .hero-sub{
-    font-size:15px;
-    line-height:1.9;
-    color:rgba(248,242,231,0.75);
+
+    font-size:25px;
+    line-height:1.0;
+    color:rgba(12, 11, 10, 0.75);
   }
 
   .scroll-cue{
@@ -219,14 +229,14 @@
     transform:translateX(-50%);
     font-size:11px;
     letter-spacing:3px;
-    color:var(--gold-soft);
+    color:var(--black);
     opacity:0.75;
   }
 
   /* ================= COUNTDOWN STRIP ================= */
   .countdown-strip{
-    background:var(--black);
-    color:var(--cream);
+    background:var(--doradopalo);
+    color:var(--black-soft);
     padding:46px clamp(20px,5vw,60px);
     text-align:center;
     border-top:1px solid var(--line-dark);
@@ -242,14 +252,14 @@
   .cd-num{
     font-family:'Cormorant Garamond', serif;
     font-size:clamp(30px,6vw,44px);
-    color:var(--gold-soft);
+    color:var(--black--soft);
     line-height:1;
   }
 
   .cd-label{
     font-size:11px;
     letter-spacing:2px;
-    color:var(--cream);
+    color:var(--black);
     opacity:0.65;
     margin-top:10px;
   }
@@ -259,25 +269,27 @@
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
     font-size:24px;
-    color:var(--gold-soft);
+    color:var(--black);
   }
 
   /* ================= SECTIONS ================= */
   section{ padding:90px clamp(24px,6vw,70px); }
 
   .section-dark{
-    background:var(--black);
+    background:var(--doradopalo);
     color:var(--cream);
   }
 
   .section-dark .ink-soft{ color:rgba(248,242,231,0.65); }
 
+  
+
   /* ---- CUADRO CON SLIDESHOW (reemplaza "Mi Historia") ---- */
   #momento p.intro{
     max-width:480px;
     margin:0 auto 50px;
-    font-size:15px;
-    line-height:1.9;
+    font-size:20px;
+    line-height:1.4;
     color:var(--ink-soft);
   }
 
@@ -285,7 +297,7 @@
 
   .frame{
     position:relative;
-    width:min(360px, 78vw);
+    width:min(380px, 78vw);
     aspect-ratio:4/5;
     border:1px solid var(--gold);
     padding:14px;
@@ -343,6 +355,8 @@
 
   .frame-placeholder svg{ width:24px; height:24px; }
 
+  
+
   /* ---- EVENTO ---- */
   .event-grid{
     display:flex;
@@ -359,20 +373,20 @@
   .event-icon{
     width:46px; height:46px;
     margin:0 auto 20px;
-    color:var(--gold-soft);
+    color:var(--black);
   }
 
   .event-label{
     font-size:12px;
     letter-spacing:2.5px;
-    color:var(--gold-soft);
+    color:var(--ink);
     margin-bottom:10px;
   }
 
   .event-value{
-    font-size:15px;
-    line-height:1.8;
-    color:var(--cream);
+    font-size:20px;
+    line-height:1.3;
+    color:var(--black);
   }
 
   @media (max-width:640px){
@@ -391,8 +405,8 @@
     display:inline-block;
     margin-top:18px;
     padding:11px 28px;
-    border:1px solid var(--gold);
-    color:var(--gold-soft);
+    border:1px solid var(--black);
+    color:var(--black);
     text-decoration:none;
     font-size:12px;
     letter-spacing:2px;
@@ -427,17 +441,20 @@
     color:var(--gold);
   }
 
-  .dress-circle svg{ width:38px; height:38px; }
+  .dress-circle svg{ width:60px; height:60px; }
 
+  .dress-circle{
+  font-size:50px;
+}
   .dress-title{
-    font-size:13px;
-    letter-spacing:2px;
+    font-size:15px;
+    letter-spacing:1px;
     color:var(--ink);
-    margin-bottom:4px;
+    margin-bottom:2px;
   }
 
   .dress-sub{
-    font-size:13px;
+    font-size:18px;
     color:var(--ink-soft);
   }
 
@@ -457,8 +474,8 @@
   .dress-note{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:18px;
-    color:var(--gold);
+    font-size: 22px;
+    color:var(--black);
     max-width:420px;
     margin:0 auto;
     line-height:1.6;
@@ -466,26 +483,26 @@
 
   /* ---- LLUVIA DE SOBRES ---- */
   .gift-icon{
-    width:52px; height:52px;
+    width:80px; height:80px;
     margin:0 auto 22px;
-    color:var(--gold-soft);
+    color:var(--black);
   }
 
   .gift-text{
     max-width:440px;
     margin:0 auto;
-    font-size:15px;
-    line-height:1.9;
-    color:rgba(248,242,231,0.8);
+    font-size:20px;
+    line-height:1.5;
+    color:rgba(29, 28, 26, 0.8);
   }
 
   .gift-text strong{
-    color:var(--gold-soft);
+    color:var(--black);
     font-weight:400;
   }
 
   /* ---- INVITACION PERSONALIZADA + RSVP (solo con link personalizado) ---- */
-  #rsvp-section{ display:none; background:var(--black); color:var(--cream); }
+  #rsvp-section{ display:none; background:var(--rosapalo); color:var(--black); }
 
   .personal-greeting{
     max-width:520px;
@@ -494,7 +511,7 @@
     font-style:italic;
     font-size:clamp(22px,3.5vw,28px);
     line-height:1.6;
-    color:var(--gold-soft);
+    color:var(--black);
   }
 
   .rsvp-form{
@@ -508,7 +525,7 @@
     display:block;
     font-size:12px;
     letter-spacing:1.5px;
-    color:var(--gold-soft);
+    color:var(--black);
     margin-bottom:8px;
   }
 
@@ -519,17 +536,17 @@
     font-family:'Jost', sans-serif;
     font-size:15px;
     font-weight:400;
-    color:var(--cream);
+    color:var(--gold);
     background:transparent;
     border:none;
-    border-bottom:1px solid var(--line-dark);
+    border-bottom:1px solid var(--black);
     outline:none;
     transition:border-color 0.25s ease;
   }
 
-  input::placeholder{ color:rgba(248,242,231,0.35); }
+  input::placeholder{ color:rgba(16, 16, 15, 0.636); }
 
-  input:focus{ border-bottom-color:var(--gold); }
+  input:focus{ border-bottom-color:var(--black); }
 
   .choice-group{ display:flex; gap:10px; }
 
@@ -537,7 +554,7 @@
     flex:1;
     text-align:center;
     padding:13px 8px;
-    border:1px solid var(--line-dark);
+    border:1px solid var(--black);
     font-size:14px;
     cursor:pointer;
     user-select:none;
@@ -545,17 +562,17 @@
   }
 
   .choice.active{
-    background:var(--gold);
-    color:var(--black);
-    border-color:var(--gold);
+    background:var(--black);
+    color:var(--gold);
+    border-color:var(--black);
   }
 
   .submit-btn{
     width:100%;
     margin-top:10px;
     padding:16px;
-    background:var(--gold);
-    color:var(--black);
+    background:var(--black);
+    color:var(--gold);
     border:none;
     border-radius:30px;
     font-family:'Jost', sans-serif;
@@ -565,7 +582,7 @@
     transition: background 0.25s ease, transform 0.15s ease;
   }
 
-  .submit-btn:hover{ background:var(--gold-soft); }
+  .submit-btn:hover{ background:var(--black--soft); }
   .submit-btn:active{ transform:scale(0.98); }
   .submit-btn:disabled{ opacity:0.6; cursor:not-allowed; }
 
@@ -574,24 +591,24 @@
     text-align:center;
   }
 
-  .confirm-msg .heading{ color:var(--gold-soft); }
+  .confirm-msg .heading{ color:var(--black--soft); }
 
   .confirm-msg p{
     font-size:14px;
     line-height:1.7;
-    color:rgba(248,242,231,0.75);
+    color:rgba(0, 0, 0, 0.75);
   }
 
   .form-error{
     display:none;
-    color:#e08b7d;
+    color:#181717;
     font-size:13px;
     margin-top:14px;
   }
 
   /* ---- FOOTER ---- */
   footer{
-    background:var(--cream);
+    background:var(--black);
     text-align:center;
     padding:60px 20px;
   }
@@ -607,11 +624,14 @@
   .footer-text{
     font-size:12px;
     letter-spacing:2px;
-    color:var(--ink-soft);
+    color:var(--gold);
   }
+
+
 </style>
 </head>
 <body>
+
 
 <nav>
   <div class="nav-mark">S</div>
@@ -637,9 +657,9 @@
       <path d="M50 7c3-4 7-4 10 0M60 7c3-4 7-4 10 0" transform="translate(0,0)"/>
     </svg>
     <p class="hero-kicker">MIS QUINCE AÑOS</p>
-    <h1 class="hero-name">Sara María Leguizamo Roberto</h1>
+    <h1 class="hero-name">Sara Leguizamo </h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub">Con la bendición de Dios y de mis padres, quiero compartir contigo esta noche tan especial en mi vida.</p>
+    <p class="hero-sub"> Con la bendición de Dios y el amor de mi familia, te invito a celebrar conmigo la alegría de mis quince años.</p>
   </div>
   <div class="scroll-cue">DESLIZA ↓</div>
 </section>
@@ -710,16 +730,17 @@
 
   <div class="dress-grid">
     <div class="dress-item">
-      <div class="dress-circle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M12 3c-1.2 0-2 .9-2 2 0 .7.3 1.3.8 1.7L9 10l-4 9h14l-4-9-1.8-3.3c.5-.4.8-1 .8-1.7 0-1.1-.8-2-2-2z"/></svg>
-      </div>
+  <div class="dress-circle">
+  💃
+</div>
+
       <p class="dress-title">FORMAL</p>
-      <p class="dress-sub">Vestido largo</p>
+      <p class="dress-sub">Vestido</p>
     </div>
     <div class="dress-item">
       <div class="dress-circle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M8 4l4 3 4-3 3 3-2 2v11H7V9L5 7z"/><path d="M12 7v13"/></svg>
-      </div>
+  🤵
+</div>
       <p class="dress-title">FORMAL</p>
       <p class="dress-sub">Traje</p>
     </div>
@@ -727,12 +748,11 @@
 
   <div class="palette">
     <div class="swatch" style="background:#B9895A;" title="Dorado"></div>
-    <div class="swatch" style="background:#241D18;" title="Negro"></div>
-    <div class="swatch" style="background:#6b5843;" title="Champán oscuro"></div>
-    <div class="swatch" style="background:#F8F2E7; border-color:#ddd;" title="Marfil"></div>
+    <div class="swatch" style="background:#DEA193;" title="Oro Rosa"></div>
+    
   </div>
 
-  <p class="dress-note">El dorado será el color de mi vestido, ¡ese tono lo dejo solo para mí! También se sugiere evitar el blanco.</p>
+  <p class="dress-note">Reservamos la paleta de coleres Dorado y Oro Rosa.</p>
 </section>
 
 <!-- ================= LLUVIA DE SOBRES ================= -->
@@ -854,19 +874,28 @@
   });
 
   // ---- Detectar invitado desde la URL (ej: /diana-y-roberto/ o ?invitado=diana-y-roberto) ----
-  function slugToName(slug){
-  const smallWords = ["y","de","del","la","las","los"];
+ function slugToName(slug){
+  const smallWords = ["y", "de", "del", "la", "las", "los"];
 
-  return slug
+  // Convertir "_" y "-" en espacios
+  const words = slug
     .replace(/_/g, " ")
-    .split("-")
-    .filter(Boolean)
-    .map((w,i) => {
-      const lw = w.toLowerCase();
-      if(smallWords.includes(lw) && i !== 0) return lw;
-      return lw.charAt(0).toUpperCase() + lw.slice(1);
-    })
-    .join(" ");
+    .replace(/-/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+
+  // Poner primera letra en mayúscula
+  const formattedWords = words.map((w, i) => {
+    const lw = w.toLowerCase();
+
+    if(smallWords.includes(lw) && i !== 0){
+      return lw;
+    }
+
+    return lw.charAt(0).toUpperCase() + lw.slice(1);
+  });
+
+  return formattedWords.join(" ");
 }
 
   const pathParts = window.location.pathname.split("/").filter(Boolean);
@@ -875,8 +904,28 @@
 
   if(slug){
     const guestName = slugToName(slug);
-    document.getElementById("personal-greeting").textContent =
-      `${guestName}, están cordialmente invitados a celebrar mis XV años`;
+
+if(slug){
+  const guestName = slugToName(slug);
+
+  // Contar personas según la palabra "y"
+  const people = guestName
+    .split(/\s+y\s+/i)
+    .filter(Boolean);
+
+  const greeting = people.length === 1
+    ? "estás cordialmente invitado"
+    : "están cordialmente invitados";
+
+  document.getElementById("personal-greeting").textContent =
+    `${guestName}, ${greeting} a celebrar mis XV años`;
+
+  document.getElementById("nav-rsvp").style.display = "block";
+  document.getElementById("rsvp-section").style.display = "block";
+  document.getElementById("invitado-slug").value = slug;
+}
+
+
     document.getElementById("nav-rsvp").style.display = "block";
     document.getElementById("rsvp-section").style.display = "block";
     document.getElementById("invitado-slug").value = slug;
