@@ -424,7 +424,7 @@
   .event-scroll{
   margin-top:50px;
   text-align:center;
-  font-size:11px;
+  font-size:18px;
   letter-spacing:3px;
   color:var(--black);
   opacity:0.7;
@@ -656,11 +656,414 @@
     color:var(--gold);
   }
 
+  /* =====================================================
+   MARIPOSA DORADA VOLADORA
+   ===================================================== */
+
+#flying-butterfly{
+  position:fixed;
+
+  width:120px;
+  height:105px;
+
+  left:0;
+  top:0;
+
+  z-index:999;
+
+  pointer-events:none;
+
+  will-change:transform;
+
+  filter:
+    drop-shadow(0 0 5px rgba(212,175,55,.55))
+    drop-shadow(0 0 15px rgba(212,175,55,.25));
+}
+
+
+/* Tamaño de la mariposa */
+
+#flying-butterfly svg{
+  width:100%;
+  height:100%;
+
+  overflow:visible;
+}
+
+
+/* ================= ALAS ================= */
+
+.butterfly-wing-left{
+  transform-origin:87px 76px;
+
+  animation:
+    butterflyLeftWing
+    .42s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.butterfly-wing-right{
+  transform-origin:93px 76px;
+
+  animation:
+    butterflyRightWing
+    .42s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* Ala izquierda */
+
+@keyframes butterflyLeftWing{
+
+  0%{
+    transform:
+      rotateY(0deg)
+      rotateZ(-2deg);
+  }
+
+  50%{
+    transform:
+      rotateY(35deg)
+      rotateZ(-5deg);
+  }
+
+  100%{
+    transform:
+      rotateY(70deg)
+      rotateZ(-8deg);
+  }
+
+}
+
+
+/* Ala derecha */
+
+@keyframes butterflyRightWing{
+
+  0%{
+    transform:
+      rotateY(0deg)
+      rotateZ(2deg);
+  }
+
+  50%{
+    transform:
+      rotateY(-35deg)
+      rotateZ(5deg);
+  }
+
+  100%{
+    transform:
+      rotateY(-70deg)
+      rotateZ(8deg);
+  }
+
+}
+
+
+/* =====================================================
+   DESTELLOS
+   ===================================================== */
+
+.butterfly-spark{
+  position:fixed;
+
+  width:4px;
+  height:4px;
+
+  border-radius:50%;
+
+  background:#D4AF37;
+
+  box-shadow:
+    0 0 5px #D4AF37,
+    0 0 12px rgba(212,175,55,.8);
+
+  pointer-events:none;
+
+  z-index:998;
+
+  animation:
+    sparkleDisappear
+    1.4s
+    ease-out
+    forwards;
+}
+
+
+@keyframes sparkleDisappear{
+
+  0%{
+    opacity:1;
+    transform:scale(.5);
+  }
+
+  30%{
+    opacity:1;
+    transform:scale(1.5);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(0);
+  }
+
+}
+
+
+/* Estrella de cuatro puntas */
+
+.butterfly-star{
+  position:fixed;
+
+  width:12px;
+  height:12px;
+
+  pointer-events:none;
+
+  z-index:998;
+
+  animation:
+    starDisappear
+    1.7s
+    ease-out
+    forwards;
+}
+
+.butterfly-star::before,
+.butterfly-star::after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  background:#D4AF37;
+
+  box-shadow:0 0 8px #D4AF37;
+}
+
+.butterfly-star::before{
+  width:2px;
+  height:12px;
+
+  transform:translate(-50%,-50%);
+}
+
+.butterfly-star::after{
+  width:12px;
+  height:2px;
+
+  transform:translate(-50%,-50%);
+}
+
+
+@keyframes starDisappear{
+
+  0%{
+    opacity:0;
+    transform:scale(.3) rotate(0deg);
+  }
+
+  35%{
+    opacity:1;
+    transform:scale(1.2) rotate(45deg);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(.2) rotate(90deg);
+  }
+
+}
+
+
+/* En celular */
+
+@media(max-width:600px){
+
+  #flying-butterfly{
+    width:90px;
+    height:80px;
+  }
+
+}
+
 
 </style>
 </head>
 <body>
+<div id="flying-butterfly">
 
+  <svg viewBox="0 0 180 160" xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <linearGradient id="goldButterfly" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#8C5A20"/>
+        <stop offset="45%" stop-color="#D4AF37"/>
+        <stop offset="75%" stop-color="#F4D77A"/>
+        <stop offset="100%" stop-color="#B9895A"/>
+      </linearGradient>
+
+      <filter id="goldGlow">
+        <feGaussianBlur stdDeviation="2"/>
+      </filter>
+    </defs>
+
+    <!-- Resplandor -->
+    <ellipse
+      cx="90"
+      cy="78"
+      rx="60"
+      ry="50"
+      fill="#D4AF37"
+      opacity=".12"
+      filter="url(#goldGlow)"
+    />
+
+    <!-- ================= ALA IZQUIERDA ================= -->
+
+    <g class="butterfly-wing-left">
+
+      <!-- Ala superior -->
+      <path
+        d="M87 75
+           C70 51 55 18 32 12
+           C17 8 9 20 14 36
+           C20 55 42 67 73 78
+           Z"
+        fill="url(#goldButterfly)"
+        stroke="#9A6B28"
+        stroke-width="1.5"
+      />
+
+      <!-- Ala inferior -->
+      <path
+        d="M80 78
+           C57 72 30 72 20 87
+           C13 98 22 111 36 111
+           C52 111 69 98 82 84
+           Z"
+        fill="url(#goldButterfly)"
+        stroke="#9A6B28"
+        stroke-width="1.5"
+      />
+
+      <!-- Diseño interno -->
+      <g fill="none" stroke="#FFF1B8" stroke-width="2" opacity=".9">
+
+        <path d="M72 69 C54 48 39 31 24 25"/>
+        <path d="M69 73 C49 60 31 51 18 48"/>
+        <path d="M68 78 C47 76 31 81 21 91"/>
+
+      </g>
+
+      <!-- Huecos decorativos -->
+      <g fill="#FFF8E7">
+
+        <ellipse cx="31" cy="25" rx="7" ry="12" transform="rotate(-35 31 25)"/>
+        <ellipse cx="46" cy="38" rx="6" ry="11" transform="rotate(-40 46 38)"/>
+        <ellipse cx="57" cy="54" rx="5" ry="9" transform="rotate(-35 57 54)"/>
+
+        <ellipse cx="34" cy="87" rx="7" ry="4" transform="rotate(-20 34 87)"/>
+        <ellipse cx="51" cy="91" rx="6" ry="4" transform="rotate(-10 51 91)"/>
+
+      </g>
+
+    </g>
+
+
+    <!-- ================= ALA DERECHA ================= -->
+
+    <g class="butterfly-wing-right">
+
+      <!-- Ala superior -->
+      <path
+        d="M93 75
+           C110 51 125 18 148 12
+           C163 8 171 20 166 36
+           C160 55 138 67 107 78
+           Z"
+        fill="url(#goldButterfly)"
+        stroke="#9A6B28"
+        stroke-width="1.5"
+      />
+
+      <!-- Ala inferior -->
+      <path
+        d="M100 78
+           C123 72 150 72 160 87
+           C167 98 158 111 144 111
+           C128 111 111 98 98 84
+           Z"
+        fill="url(#goldButterfly)"
+        stroke="#9A6B28"
+        stroke-width="1.5"
+      />
+
+      <!-- Diseño interno -->
+      <g fill="none" stroke="#FFF1B8" stroke-width="2" opacity=".9">
+
+        <path d="M108 69 C126 48 141 31 156 25"/>
+        <path d="M111 73 C131 60 149 51 162 48"/>
+        <path d="M112 78 C133 76 149 81 159 91"/>
+
+      </g>
+
+      <!-- Huecos decorativos -->
+      <g fill="#FFF8E7">
+
+        <ellipse cx="149" cy="25" rx="7" ry="12" transform="rotate(35 149 25)"/>
+        <ellipse cx="134" cy="38" rx="6" ry="11" transform="rotate(40 134 38)"/>
+        <ellipse cx="123" cy="54" rx="5" ry="9" transform="rotate(35 123 54)"/>
+
+        <ellipse cx="146" cy="87" rx="7" ry="4" transform="rotate(20 146 87)"/>
+        <ellipse cx="129" cy="91" rx="6" ry="4" transform="rotate(10 129 91)"/>
+
+      </g>
+
+    </g>
+
+
+    <!-- ================= CUERPO ================= -->
+
+    <ellipse
+      cx="90"
+      cy="82"
+      rx="4"
+      ry="25"
+      fill="#704617"
+    />
+
+    <circle
+      cx="90"
+      cy="54"
+      r="5"
+      fill="#704617"
+    />
+
+    <!-- Antenas -->
+    <path
+      d="M88 53 C78 40 70 39 63 35
+         M92 53 C102 40 110 39 117 35"
+      fill="none"
+      stroke="#8C642F"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+
+    <circle cx="63" cy="35" r="2" fill="#D4AF37"/>
+    <circle cx="117" cy="35" r="2" fill="#D4AF37"/>
+
+  </svg>
+
+</div>
 
 <nav>
   <div class="nav-mark">S</div>
@@ -763,15 +1166,89 @@
   <div class="dress-grid">
     <div class="dress-item">
   <div class="dress-circle">
-  💃
+
+  <svg viewBox="0 0 100 100"
+       xmlns="http://www.w3.org/2000/svg"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+
+    <!-- Cabeza -->
+    <circle cx="50" cy="25" r="10"/>
+
+    <!-- Cabello -->
+    <path d="M40 26 C37 14 44 9 51 10 C60 10 65 17 61 28"/>
+    <path d="M40 25 C36 34 39 40 43 43"/>
+    <path d="M60 25 C65 34 62 41 57 44"/>
+
+    <!-- Cuello -->
+    <path d="M46 34 L46 40"/>
+    <path d="M54 34 L54 40"/>
+
+    <!-- Cuerpo / vestido -->
+    <path d="M46 39
+             C42 42 41 48 40 55
+             L28 84
+             C40 89 60 89 72 84
+             L60 55
+             C59 48 58 42 54 39"/>
+
+    <!-- Escote -->
+    <path d="M46 40 L50 46 L54 40"/>
+
+    <!-- Detalle del vestido -->
+    <path d="M40 55 C47 58 53 58 60 55"/>
+
+  </svg>
+
 </div>
 
       <p class="dress-title">FORMAL</p>
       <p class="dress-sub">Vestido</p>
     </div>
     <div class="dress-item">
-      <div class="dress-circle">
-  🤵
+     <div class="dress-circle">
+
+  <svg viewBox="0 0 100 100"
+       xmlns="http://www.w3.org/2000/svg"
+       fill="none"
+       stroke="currentColor"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+
+    <!-- Cabeza -->
+    <circle cx="50" cy="25" r="10"/>
+
+    <!-- Cabello -->
+    <path d="M40 24 C40 15 45 11 51 11 C58 11 62 16 61 24"/>
+
+    <!-- Cuello -->
+    <path d="M45 34 L45 41"/>
+    <path d="M55 34 L55 41"/>
+
+    <!-- Hombros / traje -->
+    <path d="M45 40
+             L32 47
+             L25 85
+             H75
+             L68 47
+             L55 40"/>
+
+    <!-- Camisa -->
+    <path d="M45 40 L50 48 L55 40"/>
+
+    <!-- Corbata -->
+    <path d="M48 48 L52 48 L54 70 L50 76 L46 70 Z"/>
+
+    <!-- Solapas -->
+    <path d="M45 41 L50 48 L43 58"/>
+    <path d="M55 41 L50 48 L57 58"/>
+
+  </svg>
+
 </div>
       <p class="dress-title">FORMAL</p>
       <p class="dress-sub">Traje</p>
@@ -1005,6 +1482,222 @@ if(slug){
       submitBtn.textContent = "ENVIAR CONFIRMACIÓN";
     }
   });
+/* =====================================================
+   VUELO DE LA MARIPOSA
+   ===================================================== */
+
+const flyingButterfly =
+  document.getElementById("flying-butterfly");
+
+
+let butterflyX = window.innerWidth * 0.15;
+let butterflyY = window.innerHeight * 0.25;
+
+
+/* Destino actual */
+
+let targetX =
+  Math.random() * (window.innerWidth - 150);
+
+let targetY =
+  Math.random() * (window.innerHeight - 150);
+
+
+/* Movimiento */
+
+let flightTime = 0;
+
+let lastSparkle = 0;
+
+
+/* Elegir nuevo destino */
+
+function chooseNewButterflyDestination(){
+
+  targetX =
+    30 +
+    Math.random() *
+    Math.max(100, window.innerWidth - 160);
+
+  targetY =
+    50 +
+    Math.random() *
+    Math.max(100, window.innerHeight - 170);
+
+}
+
+
+/* Crear destello */
+
+function createButterflySparkle(){
+
+  const sparkle =
+    document.createElement("div");
+
+  sparkle.className =
+    Math.random() > .75
+      ? "butterfly-star"
+      : "butterfly-spark";
+
+
+  /*
+   * El destello aparece ligeramente
+   * detrás de la mariposa
+   */
+
+  sparkle.style.left =
+    (butterflyX + 45 + (Math.random() * 35 - 17)) + "px";
+
+  sparkle.style.top =
+    (butterflyY + 45 + (Math.random() * 35 - 17)) + "px";
+
+
+  document.body.appendChild(sparkle);
+
+
+  /*
+   * Eliminar después de la animación
+   */
+
+  setTimeout(() => {
+
+    sparkle.remove();
+
+  }, 1800);
+
+}
+
+
+/* ================= ANIMACIÓN ================= */
+
+function animateButterfly(time){
+
+  flightTime += 0.025;
+
+
+  /*
+   * Distancia al objetivo
+   */
+
+  const dx =
+    targetX - butterflyX;
+
+  const dy =
+    targetY - butterflyY;
+
+
+  /*
+   * Velocidad
+   */
+
+  butterflyX += dx * 0.012;
+  butterflyY += dy * 0.012;
+
+
+  /*
+   * Movimiento orgánico.
+   *
+   * La mariposa no vuela en línea recta.
+   */
+
+  const floatingX =
+    Math.sin(flightTime * 2.1) * 18;
+
+  const floatingY =
+    Math.sin(flightTime * 2.7) * 14;
+
+
+  /*
+   * Dirección
+   */
+
+  let scaleX = 1;
+
+  if(dx < 0){
+
+    scaleX = -1;
+
+  }
+
+
+  /*
+   * Rotación natural
+   */
+
+  const rotation =
+    Math.sin(flightTime * 1.5) * 10;
+
+
+  flyingButterfly.style.transform =
+    `translate3d(
+      ${butterflyX + floatingX}px,
+      ${butterflyY + floatingY}px,
+      0
+    )
+    rotate(${rotation}deg)
+    scaleX(${scaleX})`;
+
+
+  /*
+   * Crear destellos cada cierto tiempo
+   */
+
+  if(time - lastSparkle > 90){
+
+    createButterflySparkle();
+
+    lastSparkle = time;
+
+  }
+
+
+  /*
+   * Cuando llega cerca del destino,
+   * buscar otro completamente diferente.
+   */
+
+  if(
+    Math.abs(dx) < 35 &&
+    Math.abs(dy) < 35
+  ){
+
+    chooseNewButterflyDestination();
+
+  }
+
+
+  requestAnimationFrame(animateButterfly);
+
+}
+
+
+/* Comenzar */
+
+chooseNewButterflyDestination();
+
+requestAnimationFrame(animateButterfly);
+
+
+/* Recalcular cuando cambie el tamaño */
+
+window.addEventListener("resize", () => {
+
+  butterflyX =
+    Math.min(
+      butterflyX,
+      window.innerWidth - 120
+    );
+
+  butterflyY =
+    Math.min(
+      butterflyY,
+      window.innerHeight - 120
+    );
+
+  chooseNewButterflyDestination();
+
+});
+
 </script>
 
 </body>
