@@ -1422,8 +1422,8 @@ if(slug){
     ? "estás cordialmente invitad@"
     : "están cordialmente invitados";
 
-  document.getElementById("personal-greeting").textContent =
-    `${guestName}, ${greeting} a celebrar mis XV años`;
+document.getElementById("personal-greeting").innerHTML =
+  `<strong>${guestName}</strong>, ${greeting} a celebrar mis XV años`;
 
   document.getElementById("nav-rsvp").style.display = "block";
   document.getElementById("rsvp-section").style.display = "block";
@@ -1450,8 +1450,9 @@ if(slug){
     submitBtn.disabled = true;
     submitBtn.textContent = "ENVIANDO...";
 
-    const nombre = document.getElementById("nombre").value.trim();
-    const formData = new FormData(form);
+const nombre = document.getElementById("invitado-slug").value.trim();
+
+const formData = new FormData(form);
 
     try{
       const response = await fetch(FORMSPREE_ENDPOINT, {
